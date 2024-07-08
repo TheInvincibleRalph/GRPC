@@ -1,4 +1,6 @@
-PROTO-FILE BREAKDOWN
+# PROTO-FILE BREAKDOWN
+
+## CODE-BREAKDOWN
 
 ```proto
 syntax = "proto3";
@@ -65,9 +67,10 @@ message MessagesList{
 ```
 - **message MessagesList { repeated string messages = 1; }**: This defines a message type named `MessagesList` with one field:
   - **repeated string messages = 1;**: A repeated field of strings named `messages`, which is assigned the field number 1. A repeated field can contain zero or more values.
-  
 
-REPEATED FIELDS IN PROTO
+
+
+## REPEATED FIELDS IN PROTO
 
   A **repeated field** in Protocol Buffers is a field that can contain zero or more values of the specified type. It's similar to an array or a list in other programming languages. This allows you to represent collections of items within a single message.
 
