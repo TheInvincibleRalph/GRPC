@@ -92,3 +92,12 @@ For instance, a `NamesList` message could contain:
 - Multiple names: `{"names": ["Alice", "Bob", "Charlie"]}`
 
 Repeated fields are useful for scenarios where you need to send or receive a list of items, such as a list of names, a list of messages, or any other collection of similar items.
+
+
+**Setting Up gRPC**:
+   - Import necessary packages.
+   - Create a TCP listener.
+   - Instantiate a new gRPC server.
+   - Register the service implementation (`helloServer`) with the gRPC server.
+   - Start the server and handle incoming connections.
+
