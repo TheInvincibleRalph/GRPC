@@ -1,6 +1,6 @@
 # PROTO-FILE BREAKDOWN
 
-#### RPC Rule of Thumb: Clients only use (through comsumption by taking them as arguments) the services provided in the generated code, servers implement them (through implementation of methods)
+_#### RPC Rule of Thumb: Clients only use (through comsumption by taking them as arguments) the services provided in the generated code, servers implement them (through implementation of methods)_
 
 ### STUB
 
