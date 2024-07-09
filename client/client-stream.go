@@ -8,6 +8,13 @@ import (
 	pb "github.com/theinvincible/grpc/proto"
 )
 
+/*
+callSayHelloClientStream:
+
+Receive a pb.GreetServiceClient to interact with the GreetService.
+
+Accept a *pb.NamesList to provide the list of names to the server through the client streaming RPC call.
+*/
 func callSayHelloClientStream(client pb.GreetServiceClient, names *pb.NamesList) {
 	log.Printf("Client streaming started")
 	stream, err := client.SayHelloClientStreaming(context.Background())
