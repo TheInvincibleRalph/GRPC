@@ -101,3 +101,79 @@ Repeated fields are useful for scenarios where you need to send or receive a lis
    - Register the service implementation (`helloServer`) with the gRPC server.
    - Start the server and handle incoming connections.
 
+
+## Blank identifier to handle index and erro
+
+When using `range` to iterate over an array, slice, map, or channel in Go, the first return value is always the index (or key, in the case of maps). The second return value is the element (or value) at that index (or key).
+
+### Using `range`:
+
+Here's an example of using `range` with an array or slice:
+
+```go
+names := []string{"Alice", "Bob", "Charlie"}
+
+for index, name := range names {
+    fmt.Printf("Index: %d, Name: %s\n", index, name)
+}
+```
+
+- `index`: The index of the current element.
+- `name`: The value of the current element.
+
+If you don't need the index, you can use the blank identifier `_`:
+
+```go
+for _, name := range names {
+    fmt.Printf("Name: %s\n", name)
+}
+```
+
+### Using the Blank Identifier `_` for Functions Returning Errors
+
+In Go, functions often return multiple values, with the last value commonly being an error. When calling such functions, you can use the blank identifier `_` to ignore one or more return values.
+
+Here's an example:
+
+```go
+func doSomething() (int, error) {
+    // Some logic
+    return 42, nil
+}
+
+func main() {
+    // Ignoring the error
+    result, _ := doSomething()
+    fmt.Println("Result:", result)
+}
+```
+
+### Combining `range` with Function Calls Returning Errors
+
+You can use the same format when handling function calls that return an error, by using the blank identifier to ignore the unwanted return value. Here's an example using a function that returns an error:
+
+```go
+func processName(name string) error {
+    if name == "" {
+        return fmt.Errorf("empty name")
+    }
+    fmt.Printf("Processing name: %s\n", name)
+    return nil
+}
+
+func main() {
+    names := []string{"Alice", "Bob", "", "Charlie"}
+
+    for _, name := range names {
+        if err := processName(name); err != nil {
+            fmt.Printf("Error processing name: %v\n", err)
+        }
+    }
+}
+```
+
+- **`processName(name string) error`**: This function takes a name and returns an error if the name is empty.
+- **`for _, name := range names`**: Iterates over the slice of names, ignoring the index.
+- **`if err := processName(name); err != nil { ... }`**: Calls `processName` and checks for an error, handling it if present.
+
+Using the blank identifier `_` to ignore values you don't need is a common pattern in Go, allowing for cleaner and more readable code.
