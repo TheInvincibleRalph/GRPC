@@ -102,7 +102,7 @@ Repeated fields are useful for scenarios where you need to send or receive a lis
    - Start the server and handle incoming connections.
 
 
-## Blank identifier to handle index and erro
+## Blank identifier to handle index and error
 
 When using `range` to iterate over an array, slice, map, or channel in Go, the first return value is always the index (or key, in the case of maps). The second return value is the element (or value) at that index (or key).
 
