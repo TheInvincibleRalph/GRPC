@@ -1,0 +1,5 @@
+message Course {
+    string name = 1;
+    repeated string authors =2;
+}
+
