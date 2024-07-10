@@ -1,5 +1,22 @@
+syntax = "proto3";
+
+
 message Course {
-    string name = 1;
-    repeated string authors =2;
+    string name = 1; //name of the course
+    repeated string authors =2; //authors of the course
+    map<string, Lecture> lectures = 3; //lecture name is linked to a lecture platform
 }
 
+message Lecture {
+oneof content { //oneof is used here because the content of the lecture can either be an article or a video (meaning they are mutually exclusive)
+    Video video = 1;
+    Article article = 2;
+}
+}
+
+
+enum VideoType {
+    UNSPECIFIED = 0; //a default type
+    MP4 = 1;
+    MOV = 2;
+}
