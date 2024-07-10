@@ -15,8 +15,22 @@ oneof content { //oneof is used here because the content of the lecture can eith
 }
 
 
-enum VideoType {
-    UNSPECIFIED = 0; //a default type
+enum VideoType { //enum is used because these are the possible state of files acceptable for the Video section
+    UNSPECIFIED = 0; //a default type, it flags any other format that is not stated here as unsupported
     MP4 = 1;
     MOV = 2;
 }
+
+message Video {
+    VideoType type = 1;
+    string url = 2;
+}
+
+
+message Article {
+    string text = 1;
+}
+
+
+//the minimum tag for a message is 1
+//enumeration is used when you have an exhaustive list of state
